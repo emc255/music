@@ -7,6 +7,7 @@ import com.emc.model.OrderBy;
 
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -25,6 +26,20 @@ public class Main {
 
         List<ArtistList> artistLists = dataSource.queryArtistsForSong("Go Your Own Way",OrderBy.DESCENDING);
         printArtistList2(artistLists);
+
+        //dataSource.querySongsMetadata();
+        System.out.println(dataSource.getCount("songs"));
+
+        //testing preapared statement type this: Go Your Own Way" or 1+1 or "
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Enter Song Title: ");
+//        String title = scanner.nextLine();
+//
+//        List<ArtistList> artistLists2 = dataSource.queryArtistsForSong(title);
+//        printArtistList2(artistLists2);
+        dataSource.insertSong("Rough","Gfriend","Snowflake",2);
+
+
         dataSource.close();
     }
 
